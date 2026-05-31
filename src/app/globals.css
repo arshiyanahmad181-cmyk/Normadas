@@ -162,3 +162,22 @@
   }
 }
 
+/* ── Admin dashboard animations ── */
+@keyframes admin-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes admin-grow-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes admin-draw {
+  to { stroke-dashoffset: 0; }
+}
+.admin-rise { animation: admin-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.admin-grow-x { transform-origin: left; animation: admin-grow-x 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.admin-draw { stroke-dasharray: 2400; stroke-dashoffset: 2400; animation: admin-draw 1.6s ease-out forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .admin-rise, .admin-grow-x, .admin-draw { animation: none; transform: none; stroke-dashoffset: 0; }
+}
+

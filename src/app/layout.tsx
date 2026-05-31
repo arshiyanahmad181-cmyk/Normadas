@@ -6,6 +6,7 @@ import { CartProvider } from "@/components/cart/cart-context";
 import { CartSheet } from "@/components/cart/cart-sheet";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
+import { StoreChrome } from "@/components/site/store-chrome";
 import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
@@ -72,9 +73,9 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <CartProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <StoreChrome navbar={<Navbar />} footer={<Footer />}>
+            {children}
+          </StoreChrome>
           <CartSheet />
           <Toaster position="top-center" />
         </CartProvider>
